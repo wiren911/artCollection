@@ -1,0 +1,27 @@
+﻿@model ArtCollection.Controllers.CategoryViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <p>@Html.ActionLink("Add Category", "CreateCategory", new { id = Model.Id})</p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories)
+            </th>
+        </tr>
+        @foreach (var item in Model.Categories)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Categories)
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>

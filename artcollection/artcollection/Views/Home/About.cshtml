@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "My Work";
+}
+
+
+<p>Use this area to provide additional information.</p>
+@using (Html.BeginForm("UploadImage", "Home", null, FormMethod.Post, new { enctype ="multipart/form-data"}))
+{
+    <div class="form-horizontal">
+        <h4></h4>
+    </div>
+    @Html.Label("Image", new { @class = "Control-label col-md-2"})
+    <div class="col-md-10">
+        <input type="file" name="file" />
+    </div>
+}<div class="form-group"></div>
+<div>
+    
+</div>

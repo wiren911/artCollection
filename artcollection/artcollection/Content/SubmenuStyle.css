@@ -1,0 +1,30 @@
+﻿li.dropdown{
+    display: inline-block;
+}
+li {
+    float: left;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+    z-index: 1;
+}
+.dropdown-content a {
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    color: black;
+}
+li a, .dropbtn{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 12px;
+    color: white;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
