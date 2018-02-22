@@ -54,7 +54,9 @@ namespace ArtCollection.Models
     {
         public int Id { get; set; }
         public string CategoryName { get; set; }
-        //public virtual Image Image { get; set; }
+        public string FileName { get; set; }
+        public string ContentType { get; set; }
+        public byte[] Picture { get; set; }
         public virtual ApplicationUser catCreatedBy { get; set; }
     }
 

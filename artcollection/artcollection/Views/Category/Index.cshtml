@@ -5,23 +5,51 @@
 
 <h2>Index</h2>
 
-<div>
-    <p>@Html.ActionLink("Add Category", "CreateCategory", new { id = Model.Id})</p>
+<h2>Create</h2>
+<a class="btn btn-success" data-toggle="modal" data-target=".bootstrapmodal"><span class="glyphicon glyphicon-eye-open"></span>Add Category</a>
 
-    <table class="table">
+<div class="modal fade bootstrapmodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close"><span>&times;</span></button>
+                <div class="modal-title"><h2>New Category</h2></div>
+            </div>
+            <div class="modal-body">
+                <p>Enter category name</p>
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.Categories, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.TextBox("catName")
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    @*<table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Categories)
+                Available categories
             </th>
-        </tr>
+        </tr>*@
         @foreach (var item in Model.Categories)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(model => model.Categories)
-                </td>
-            </tr>
+            @*<tr>
+                <td>*@
+            <div>
+                @Html.DisplayFor(modelItem => item.catCreatedBy) @Html.DisplayFor(modelItem => item.CategoryName)
+
+            </div>
+            <div>
+                <img src="@Url.Action("ViewCatImage", "Category", new { id = Model.Categories})" />
+            </div>
+                @*</td>
+            </tr>*@
         }
-    </table>
+    @*</table>*@
 
 </div>

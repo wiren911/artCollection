@@ -13,7 +13,7 @@ namespace ArtCollection.Controllers
         public ActionResult Index(string id)
         {
             var cats = db.Categories.Where(x => x.catCreatedBy.Id == id).ToList();
-            return View(new CategoryViewModel { Id = id, Categories = cats });
+            return View(new CategoryViewModel { Id = id, Categories = cats});
         }
         public ActionResult Create(string id)
         {
@@ -31,10 +31,31 @@ namespace ArtCollection.Controllers
             }
             return View(category);
         }
+        public ActionResult ViewCatImage(int id)
+        {
+            var getPicture = db.Categories.Single(x => x.Id == id);
+            if (getPicture != null)
+            {
+                return File(getPicture.Picture, getPicture.ContentType);
+            }
+            if (getPicture.CategoryName.Equals("Summer"))
+            {
+                return File("~/pictures/summer.jpg", "image/jpg");
+            }
+            //if (getPicture.CategoryName == "Winter")
+            //{
+            //    return File("~/pictures/winter.jpg", "image/jpg");
+            //}
+            else
+            {
+                return File("~/pictures/category.jpg", "image/jpg");
+            }
+        }
     }
     public class CategoryViewModel
     {
         public string Id { get; set; }
+        public virtual ApplicationUser CreatedBy { get; set; }
         public ICollection<Category> Categories { get; set; }
     }
 }
